@@ -18,7 +18,7 @@ void run(ParameterProgram program) {
         printf("\t%d. %s\n", i, program.argv[i]);
     }
     printf("=========================\n");
-    printf("Please choose the order number that matches your choice: ");
+    printf("Please choose the order number that matches your choice (%d-%d): ", 1, program.argc - 1);
     int choice;
     scanf("%d", &choice);
     while ((choice >= program.argc) || (choice < 1) || sizeof(choice) != sizeof(int))
@@ -32,7 +32,7 @@ void run(ParameterProgram program) {
             printf("Quit the program....\n");
             return ;
         }
-        printf("Please make a choice: ");
+        printf("Please make a choice (%d-%d): ", 1, program.argc - 1);
         scanf("%d", &choice);
     }
 
