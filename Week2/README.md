@@ -20,23 +20,31 @@ sh main.sh /home/quang/Desktop/OS_course/Week2
 ## Running Tests
 Results when testing in validation_dir directory
 ```shell
-h main.sh ./validation_dir/
-         1. ./validation_dir/be.php
-         2. ./validation_dir/sub2/yolov7_tiny.yaml
-         3. ./validation_dir/sub2/subsub1/efficientnetB0.cfg
-         4. ./validation_dir/sub1/yolov4.cfg
-         5. ./validation_dir/sub1/subsub1/yolov3.cfg
-         6. ./validation_dir/sub1/subsub1/ex2_1.js
-         7. ./validation_dir/sub1/subsub1/hello.yaml
+(base) quang@quang-HP-ProBook-430-G6:~/Desktop/OS_course/Week2$ sh main.sh ./validation_dir/
+Compiling menu.c...
+Empty files:
+         1. ./validation_dir/sub2/yolov7_tiny.yaml
+         2. ./validation_dir/sub2/subsub1/efficientnetB0.cfg
+         3. ./validation_dir/sub1/yolov4.cfg
+         4. ./validation_dir/sub1/subsub1/yolov3.cfg
+         5. ./validation_dir/sub1/subsub1/ex2_1.js
+         6. ./validation_dir/sub1/subsub1/hello.yaml
+         7. ./validation_dir/bend.php
          8. ./validation_dir/hello.cpp
 ------------------------------------
-Wanna delete ./validation_dir/be.php? 
+Wanna delete ./validation_dir/sub2/yolov7_tiny.yaml? 
+Please choose delete or not: type '1': delete, other: not delete
+0
+------------------------------------
+Kept ./validation_dir/sub2/yolov7_tiny.yaml.
+------------------------------------
+Wanna delete ./validation_dir/sub2/subsub1/efficientnetB0.cfg? 
 Please choose delete or not: type '1': delete, other: not delete
 1
 ===========
-Deleted ./validation_dir/be.php successfully.
+Deleted ./validation_dir/sub2/subsub1/efficientnetB0.cfg successfully.
 ------------------------------------
-Wanna delete ./validation_dir/sub2/yolov7_tiny.yaml? 
+Wanna delete ./validation_dir/sub1/yolov4.cfg? 
 Please choose delete or not: type '1': delete, other: not delete
 
 ```

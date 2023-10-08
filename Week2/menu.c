@@ -16,6 +16,7 @@ void initializeFileManager(FileManager *manager, int argc, char *argv[]) {
 }
 
 void displayEmptyFiles(FileManager *manager) {
+    printf("Empty files:\n");
     for (int i = 0; i < manager->numFiles; i++) {
         printf("\t %d. %s\n", i + 1, manager->files[i]);
     }
