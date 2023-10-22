@@ -8,8 +8,8 @@
 
 // Define a structure for shared var
 struct VarShared {
-    int x, y, z;  // Variables for calculations
-    int ready;     // Flag to indicate var readiness
+    int x, y, z;  
+    int ready;     
 };
 
 // Function to perform calculation
