@@ -46,6 +46,7 @@ int main() {
         perror("Failed to attach shared memory segment (shmat())");
         exit(EXIT_FAILURE);
     }
+    var->ready = 0;
 
     // Fork a child process
     pid_t child_PID = fork();
