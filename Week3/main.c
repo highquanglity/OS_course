@@ -6,9 +6,29 @@
 #include <sys/shm.h>
 #include <time.h>
 
-void logger(const char* tag, const char* message) {
+// Define a structure for shared data
+struct SharedData {
+    int x, y, z;  // Variables for calculations
+    int ready;     // Flag to indicate data readiness
+};
+
+// Function to initialize shared data
+void initSharedData(struct SharedData* data, int x, int y) {
+    data->x = x;
+    data->y = y;
+    data->ready = 0;
+}
+
+// Function to perform calculation
+void calculate(struct SharedData* data) {
+    data->z = data->x + data->y;
+    data->ready = 0;
+}
+
+// Function to log messages
+void logMessage(const char* tag, const char* message) {
     time_t rawtime;
-    struct tm * timeinfo;
+    struct tm* timeinfo;
     char timestamp[20]; // Buffer to store formatted timestamp
 
     time(&rawtime);
@@ -18,25 +38,20 @@ void logger(const char* tag, const char* message) {
     printf("[%s] [%s]: %s\n", timestamp, tag, message);
 }
 
-// Define a structure for shared data
-struct shared_data {
-    int x, y, z;  // Variables for calculations
-    int ready;     // Flag to indicate data readiness
-};
-
 int main() {
+    // Generate a unique key for shared memory
     int key_t = 41354;
-    
-    // Create shared memory segment
-    int shm_ID = shmget(key_t, sizeof(struct shared_data), IPC_CREAT | 0666);
+
+    // Create or access the shared memory segment
+    int shm_ID = shmget(key_t, sizeof(struct SharedData), IPC_CREAT | 0666);
     if (shm_ID < 0) {
         perror("shmget failed");
         exit(EXIT_FAILURE);
     }
 
-    // Attach shared memory segment to the process's address space
-    struct shared_data *data = shmat(shm_ID, NULL, 0);
-    if (data == (struct shared_data*) -1) {
+    // Attach the shared memory segment to the process's address space
+    struct SharedData* data = shmat(shm_ID, NULL, 0);
+    if (data == (struct SharedData*) -1) {
         perror("shmat failed");
         exit(EXIT_FAILURE);
     }
@@ -49,35 +64,38 @@ int main() {
     }
 
     if (pid == 0) { // Child process
+        // Wait until parent sets ready flag to 1
         while (data->ready == 0) {
-            // Wait until parent sets ready flag to 1
             sleep(1);
         }
-        
-        // Perform the calculation
-        logger("INFO", "Child Working");
-        data->z = data->x + data->y;
-        data->ready = 0; // Calculation done, set ready flag to 0
 
+        // Perform the calculation
+        logMessage("INFO", "Child Working");
+        calculate(data);
+
+        // Exit child process
         exit(EXIT_SUCCESS);
     } else { // Parent process
-        logger("INFO", "Parent Working");
-        
-        // Read values for x and y from the user
+        logMessage("INFO", "Parent Working");
+
+        // Read values for x and y from the user and initialize shared data
+        int x, y;
         printf("Enter the value of x: ");
-        scanf("%d", &data->x);
-
+        scanf("%d", &x);
         printf("Enter the value of y: ");
-        scanf("%d", &data->y);
+        scanf("%d", &y);
+        initSharedData(data, x, y);
 
-        data->ready = 1; // Set ready flag to 1 to notify child to start calculation
-        logger("INFO", "Parent Waiting");
+        // Notify child to start calculation
+        data->ready = 1;
+        logMessage("INFO", "Parent Waiting");
+
+        // Wait until child sets ready flag to 0 after the calculation
         while (data->ready != 0) {
-            // Wait until child sets ready flag to 0 after the calculation
             sleep(1);
         }
-        logger("INFO", "Parent Working");
 
+        logMessage("INFO", "Parent Working");
         // Display the calculated result
         printf("The value of z is %d\n", data->z);
 
@@ -85,6 +103,7 @@ int main() {
         shmdt(data);
         shmctl(shm_ID, IPC_RMID, NULL);
 
+        // Exit parent process
         exit(EXIT_SUCCESS);
     }
 
