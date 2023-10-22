@@ -6,23 +6,16 @@
 #include <sys/shm.h>
 #include <time.h>
 
-// Define a structure for shared data
-struct SharedData {
+// Define a structure for shared var
+struct VarShared {
     int x, y, z;  // Variables for calculations
-    int ready;     // Flag to indicate data readiness
+    int ready;     // Flag to indicate var readiness
 };
 
-// Function to initialize shared data
-void initSharedData(struct SharedData* data, int x, int y) {
-    data->x = x;
-    data->y = y;
-    data->ready = 0;
-}
-
 // Function to perform calculation
-void calculate(struct SharedData* data) {
-    data->z = data->x + data->y;
-    data->ready = 0;
+void calculate(struct VarShared* var) {
+    var->z = var->x + var->y;
+    var->ready = 0;
 }
 
 // Function to log messages
@@ -43,64 +36,64 @@ int main() {
     int key_t = 41354;
 
     // Create or access the shared memory segment
-    int shm_ID = shmget(key_t, sizeof(struct SharedData), IPC_CREAT | 0666);
+    int shm_ID = shmget(key_t, sizeof(struct VarShared), IPC_CREAT | 0666);
     if (shm_ID < 0) {
-        perror("shmget failed");
+        perror("Failed to create shared memory segment (shmget())");
         exit(EXIT_FAILURE);
     }
 
     // Attach the shared memory segment to the process's address space
-    struct SharedData* data = shmat(shm_ID, NULL, 0);
-    if (data == (struct SharedData*) -1) {
-        perror("shmat failed");
+    struct VarShared* var = shmat(shm_ID, NULL, 0);
+    if (var == (struct VarShared*) -1) {
+        perror("Failed to attach shared memory segment (shmat())");
         exit(EXIT_FAILURE);
     }
 
     // Fork a child process
-    pid_t pid = fork();
-    if (pid == -1) {
-        perror("fork failed");
+    pid_t child_PID = fork();
+    if (child_PID == -1) {
+        perror("Failed to fork process (fork())");
         exit(EXIT_FAILURE);
     }
 
-    if (pid == 0) { // Child process
+    if (child_PID == 0) { // Child process
         // Wait until parent sets ready flag to 1
-        while (data->ready == 0) {
+        while (var->ready == 0) {
             sleep(1);
         }
 
         // Perform the calculation
         logMessage("INFO", "Child Working");
-        calculate(data);
+        calculate(var);
 
         // Exit child process
         exit(EXIT_SUCCESS);
     } else { // Parent process
         logMessage("INFO", "Parent Working");
 
-        // Read values for x and y from the user and initialize shared data
-        int x, y;
+        // Read values for x and y from the user and initialize shared var
         printf("Enter the value of x: ");
-        scanf("%d", &x);
+        scanf("%d", &var->x);
+
         printf("Enter the value of y: ");
-        scanf("%d", &y);
-        initSharedData(data, x, y);
+        scanf("%d", &var->y);
+
 
         // Notify child to start calculation
-        data->ready = 1;
+        var->ready = 1;
         logMessage("INFO", "Parent Waiting");
 
         // Wait until child sets ready flag to 0 after the calculation
-        while (data->ready != 0) {
+        while (var->ready != 0) {
             sleep(1);
         }
 
         logMessage("INFO", "Parent Working");
         // Display the calculated result
-        printf("The value of z is %d\n", data->z);
+        printf("The value of z is %d\n", var->z);
 
         // Detach from shared memory and remove the shared memory segment
-        shmdt(data);
+        shmdt(var);
         shmctl(shm_ID, IPC_RMID, NULL);
 
         // Exit parent process
