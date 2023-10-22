@@ -68,8 +68,6 @@ int main() {
         exit(EXIT_SUCCESS);
     } else { // Parent process
         logMessage("INFO", "Parent Working");
-
-        // Read values for x and y from the user and initialize shared var
         printf("Enter the value of x: ");
         scanf("%d", &var->x);
         printf("Enter the value of y: ");
