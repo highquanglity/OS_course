@@ -64,7 +64,7 @@ int main() {
         // Perform the calculation
         logMessage("INFO", "Child Working");
         calculate(var);
-
+        logMessage("INFO", "Finished Calculation");
         // Exit child process
         exit(EXIT_SUCCESS);
     } else { // Parent process
