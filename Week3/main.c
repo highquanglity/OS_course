@@ -23,11 +23,9 @@ void logMessage(const char* tag, const char* message) {
     time_t rawtime;
     struct tm* timeinfo;
     char timestamp[20]; // Buffer to store formatted timestamp
-
     time(&rawtime);
     timeinfo = localtime(&rawtime);
     strftime(timestamp, sizeof(timestamp), "%H:%M:%S", timeinfo);
-
     printf("[%s] [%s]: %s\n", timestamp, tag, message);
 }
 
@@ -74,10 +72,8 @@ int main() {
         // Read values for x and y from the user and initialize shared var
         printf("Enter the value of x: ");
         scanf("%d", &var->x);
-
         printf("Enter the value of y: ");
         scanf("%d", &var->y);
-
 
         // Notify child to start calculation
         var->ready = 1;
