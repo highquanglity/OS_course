@@ -4,7 +4,7 @@
 * To run the test code, enter the following command in the terminal:
 First, complie main.c to main.exe
 ```shell
-// gcc -pthread -o main main.c
+gcc -pthread -o main main.c
 ```
 after that, execute main.exe file:
 ```shell
