@@ -6,13 +6,13 @@
 #include <time.h>
 
 // Define a structure for shared var
-struct Var {
+struct Var_init {
     int x, y, z;
     volatile int ready; // Use volatile to prevent compiler optimization
 };
 
 // Function to perform calculation
-void calculate(struct Var* var) {
+void calculate(struct Var_init* var) {
     var->z = var->x + var->y;
     var->ready = 0;
 }
@@ -29,7 +29,7 @@ void logMessage(const char* tag, const char* message) {
 }
 
 void* childThread(void* arg) {
-    struct Var* var = (struct Var*)arg;
+    struct Var_init* var = (struct Var_init*)arg;
     
     // Wait until ready flag is set by the parent
     while (var->ready == 1) {
@@ -45,7 +45,7 @@ void* childThread(void* arg) {
 }
 
 int main() {
-    struct Var var;
+    struct Var_init var;
     var.ready = 1; // Set ready flag to 1 initially
     
     pthread_t thread;
