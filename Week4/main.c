@@ -1,4 +1,3 @@
-// gcc -pthread -o main main.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -8,7 +7,7 @@
 // Define a structure for shared var
 struct Var_init {
     int x, y, z;
-    volatile int ready; // Use volatile to prevent compiler optimization
+    int ready; // 0: Not ready, 1: Ready
 };
 
 // Function to perform calculation
@@ -32,8 +31,8 @@ void* childThread(void* arg) {
     struct Var_init* var = (struct Var_init*)arg;
     
     // Wait until ready flag is set by the parent
-    while (var->ready == 1) {
-        sleep(1); // Sleep for 1 second to reduce CPU usage
+    while (var->ready == 0) {
+        usleep(1000); // Sleep for 1000 microseconds to reduce CPU usage and wait ready =1 for calculation to start
     }
 
     // Perform the calculation
@@ -46,7 +45,7 @@ void* childThread(void* arg) {
 
 int main() {
     struct Var_init var;
-    var.ready = 1; // Set ready flag to 1 initially
+    var.ready = 0; // Not ready initially
     
     pthread_t thread;
     pthread_create(&thread, NULL, childThread, (void*)&var);
@@ -58,7 +57,7 @@ int main() {
     scanf("%d", &var.y);
 
     // Notify child to start calculation
-    var.ready = 0;
+    var.ready = 1; // Set ready flag to 1
 
     // Wait for the child thread to finish
     pthread_join(thread, NULL);
