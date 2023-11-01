@@ -45,9 +45,9 @@ void SJF_Scheduling(const vector<Process>& processes) {
 
         cout << "\nProcess scheduling according to SJF is:" << endl;
 
-        cout << "Process id\tArrival time\tBurst time\tCompletion time\tTurnaround time\twait_pooling time" << endl;
+        cout << "Process id\tArrival time\tBurst time\tCompletion time\tTurnaround time\tWaiting time" << endl;
         outputFile << "\nProcess scheduling according to SJF is:" << endl;
-        outputFile << "Process id\tArrival time\tBurst time\tCompletion time\tTurnaround time\twait_pooling time" << endl;
+        outputFile << "Process id\tArrival time\tBurst time\tCompletion time\tTurnaround time\tWaiting time" << endl;
         while (!inputProcesses.empty() || !wait_pool.empty()) {
             while (!inputProcesses.empty() && inputProcesses[0].arrival_time <= current_time) {
                 wait_pool.push(inputProcesses[0]);
