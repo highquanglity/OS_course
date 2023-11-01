@@ -2,9 +2,9 @@
 > by: **Van Quang Nghiem**
 ## Usage
 * To run the test code, enter the following command in the terminal:
-First, complie main.c to main.exe
+First, complie c file to exe file
 ```shell
-g++ .\main_SJF.cpp -o .\main_SJF
+g++ ./main_SJF.cpp -o ./main_SJF
 ```
 after that, execute main.exe file:
 ```shell
