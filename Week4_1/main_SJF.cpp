@@ -75,9 +75,9 @@ void SJF_Scheduling(const vector<Process>& processes) {
         double averageTurnaroundTime = static_cast<double>(totalTurnaroundTime) / processes.size();
         double averagewait_poolingTime = static_cast<double>(totalwait_poolingTime) / processes.size();
         cout << "\nAverage Turnaround Time: " << averageTurnaroundTime << endl;
-        cout << "Average wait_pooling Time: " << averagewait_poolingTime << endl;
+        cout << "Average Waiting Time: " << averagewait_poolingTime << endl;
         outputFile << "\nAverage Turnaround Time: " << averageTurnaroundTime << endl;
-        outputFile << "Average wait_pooling Time: " << averagewait_poolingTime << endl;
+        outputFile << "Average Waiting Time: " << averagewait_poolingTime << endl;
         outputFile.close();
         cout << "Output written to output.txt" << endl;
     } else {
