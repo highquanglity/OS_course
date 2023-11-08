@@ -62,7 +62,6 @@ int main()
 
         cout << "z = " << data.z << endl;
 
-        logMessage("INFO", "Parent Terminating");
     }
     child.join();
     return 0;
