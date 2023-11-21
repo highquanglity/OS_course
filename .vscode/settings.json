@@ -8,6 +8,8 @@
         "stdlib.h": "c",
         "time.h": "c",
         "iostream": "cpp",
-        "mutex": "cpp"
+        "mutex": "cpp",
+        "vector": "cpp",
+        "ostream": "cpp"
     }
 }
