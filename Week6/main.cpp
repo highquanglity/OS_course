@@ -144,7 +144,7 @@ int main()
     }
     else
     {
-        cout << "Following is the SAFE Sequence" << endl;
+        cout << "Safe sequence is:" << endl;
         for (int i = 0; i < n - 1; ++i)
         {
             cout << " P" << safeSequence[i] << " ->";

@@ -21,7 +21,7 @@ Process | Allocation | Max | Available | Need
    P2   | 3  0  2 | 9  0  2 |         | 6  0  0 
    P3   | 2  1  1 | 2  2  2 |         | 0  1  1 
    P4   | 0  0  2 | 4  3  3 |         | 4  3  1 
-Following is the SAFE Sequence
+Safe sequence is:
  P1 -> P3 -> P4 -> P0 -> P2
 
 ```
