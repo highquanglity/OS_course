@@ -1,8 +1,8 @@
 /**
  * @author Nghiem Van Quang
- * g++ main.cpp -o main
- * ./main
- * @source 
+ * '''g++ main.cpp -o main
+    ./main'''
+ * @source https://github.com/highquanglity/OS_course/tree/main/Week6
  */
 #include <iostream>
 #include <vector>
