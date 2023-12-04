@@ -30,7 +30,7 @@ void printTable(const string &tableName, const vector<TableLkup> &table)
     cout << tableName << ":\n";
     for (const auto &entry : table)
     {
-        cout << "Page: " << bitset<3>(entry.pgNum) << " Frame: " << bitset<3>(entry.frameNum) << '\n';
+        cout << "Page: " << bitset<3>(entry.pgNum) <<" || "<<"Frame: " << bitset<3>(entry.frameNum) << '\n';
     }
 }
 
