@@ -2,7 +2,7 @@
  * @author Nghiem Van Quang
  * '''g++ main.cpp -o main
     ./main'''
- * @github https://github.com/highquanglity/OS_course/tree/main/Week6
+ * @github https://github.com/highquanglity/OS_course/tree/main/Week7
  */
 #include <iostream>
 #include <bitset>
