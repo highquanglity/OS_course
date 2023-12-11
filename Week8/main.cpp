@@ -16,7 +16,7 @@ const int Del_ta = 16;
 const int num_of_page = 10;
 const int bit_ref = 4;
 
-vector<int> CheckWorkingSet(const vector<vector<int>> &Bitarr)
+vector<int> Check_WS(const vector<vector<int>> &Bitarr)
 {
     vector<int> RowHasOne(num_of_page, 0);
     for (int row = 0; row < num_of_page; ++row)
@@ -29,9 +29,9 @@ vector<int> CheckWorkingSet(const vector<vector<int>> &Bitarr)
     return RowHasOne;
 }
 
-void UpdateWorkingSet(vector<vector<int>> &Bitarr, vector<int> &workingSet)
+void WS_Update(vector<vector<int>> &Bitarr, vector<int> &workingSet)
 {
-    vector<int> RowContainsOnes = CheckWorkingSet(Bitarr);
+    vector<int> RowContainsOnes = Check_WS(Bitarr);
 
     for (int row = 0; row < num_of_page; ++row)
     {
@@ -48,7 +48,7 @@ void UpdateWorkingSet(vector<vector<int>> &Bitarr, vector<int> &workingSet)
     }
 }
 
-void PrintWorkingSet(const vector<int> &workingSet)
+void Print_WS(const vector<int> &workingSet)
 {
     cout << "Working set: ";
     for (int page : workingSet)
@@ -73,7 +73,7 @@ void PrintBitArray(const vector<vector<int>> &Bitarr)
     cout << endl;
 }
 
-void UpdateReferenceBits(vector<vector<int>> &Bitarr, int runth, const vector<int> &pageReferenceList)
+void Update_RefBits(vector<vector<int>> &Bitarr, int runth, const vector<int> &pageReferenceList)
 {
     for (int row = 0; row < num_of_page; ++row)
     {
@@ -114,9 +114,9 @@ int main()
     for (int runth = 0; runth < timesrun; ++runth)
     {
         cout << "%%%%%%%%%%%%%%%%%%%Round " << runth + 1 << "%%%%%%%%%%%%%%%%%%%" << endl;
-        UpdateReferenceBits(referenceBits, runth, pageReferenceList);
-        UpdateWorkingSet(referenceBits, workingSet);
-        PrintWorkingSet(workingSet);
+        Update_RefBits(referenceBits, runth, pageReferenceList);
+        WS_Update(referenceBits, workingSet);
+        Print_WS(workingSet);
     }
 
     return 0;
