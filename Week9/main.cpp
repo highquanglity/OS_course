@@ -30,7 +30,7 @@ void Wrtie2BinFile(const std::vector<Contact>& contacts, const std::string& file
     int numContacts = contacts.size();
     file.write(reinterpret_cast<char*>(&numContacts), sizeof(int));
 
-    // Write contacts to file
+    // Write each contact to file
     for (const auto& contact : contacts)
     {
         int nameSize = contact.name.size();
@@ -45,7 +45,7 @@ void Wrtie2BinFile(const std::vector<Contact>& contacts, const std::string& file
     file.close();
 }
 
-// Find contact with name in phonebook
+// Find contact with given name in phonebook
 void FindContact(const std::string& name, const std::string& filename)
 {
     std::ifstream file(filename, std::ios::binary);
