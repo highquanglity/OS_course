@@ -14,8 +14,8 @@ Trong bài tập lớn này, các chức năng và câu lệnh của một Linux
 MSSV| Thành viên | Công việc |
 ----|------------|-----------|
 20200038| Nguyễn Tuấn Anh | Tìm hiểu về external command, exeExternalCmd(), handle_cd(), find_special_character(), expand_wcard(), expandWildcardTokens(), find_and_erase(), IsInsideQuotes(), làm báo cáo.| 
-20203355| Hà Đình Đạt | Tìm hiểu về internal command, get_current_dir(), display_promt, handle_pwd(), handle_help(), trim(),wcard_check(), handle_redirect_check(), InItalicCmd_check().| 
-20203706| Nguyễn Phạm Trung Hiếu | Viết test case, handle_cat(), exeInternalCmd(), SplitCmd_char(),get_delimeter_positions(), exeCmdOutput(), , SplitCmd_pos(), README.md, làm báo cáo.| 
+20203355| Hà Đình Đạt | Tìm hiểu về internal command, get_current_dir(), display_promt, handle_pwd(), handle_help(), trim(),wcard_check(), handle_redirect_check(), InItalicCmd_check(), exeCmdOutput()| 
+20203706| Nguyễn Phạm Trung Hiếu | Viết test case, handle_cat(), exeInternalCmd(), SplitCmd_char(),get_delimeter_positions(), exeCmdOutput(), SplitCmd_pos(), README.md, làm báo cáo.| 
 20203547| Nghiêm Văn Quang |Chia module, viết test case, doc cho hàm, ghép chương trình, single_cmd_process(), handle_redirection(), exeBackgndCmd(), exePipeCmd(), exeComplexCmds(), GetItalicCommaCommandOutput(), README.md |
 ## Requirements:
 - C++ 11, C++ 14, C++17.
@@ -36,12 +36,32 @@ Từ lần sau đó, không cần biên dịch lại nữa, chỉ cần chạy c
 ```shell
 ./main
 ```
+
+Sau đó thao tác như thao tác với shell bình thường, chú ý hiện tại chư thể sử dụng các arrow keys trong terminal.
 ## Cấu trúc thư mục:
+Dưới đây là cấu trúc thư mục Project
+```shell
+├── main
+├── main.cpp
+├── README.md
+├── run.sh
+├── tests
+├── test_env
+└── utils
+    ├── external_cmd.cpp
+    ├── external_cmd.h
+    ├── internal_cmd.cpp
+    ├── internal_cmd.h
+    ├── utils.cpp
+    └── utils.h
+
+```
+run.sh là bash script để chạy biên dịch toàn chương trình, sau đó chạy ./main để vào chương trình. Các file phụ trợ header file và source file nằm trong thư mục utils. Folder tests chứa các chương trình C++ để kiểm tra chức năng từng hàm. Folder test_env là thư mục riêng biệt chứa các file và folder được tạo ra để test chương trình hoạt động như thế nào, không gây ảnh hưởng đến các folder khác.
 ## Running Tests
 | Case | Đầu ra trên Ubuntu terminal | Kết quả chương trình|
 |--------------|-------|------|
-| ```cd test_case``` | Chuyển thành công vào test-case| Chuyển thành công vào test_case|
-| ```pwd``` | /home/quang/Desktop/OS_course/Project/test_case | /home/quang/Desktop/OS_course/Project/test_case |
+| ```cd test_env``` | Chuyển thành công vào test_env| Chuyển thành công vào test_env|
+| ```pwd``` | /home/quang/Desktop/OS_course/Project/test_env | /home/quang/Desktop/OS_course/Project/test_env |
 | ```echo date``` | date | date |
 | ```cat hehe.py``` | print("dung roi ne") | print("dung roi ne") |
 | ```ls *.ipynb``` | bed_11.ipynb  bed_21.ipynb  mnist_1_core.ipynb  mnist_5_core.ipynb  mobile_ss.ipynb | bed_11.ipynb  bed_21.ipynb  mnist_1_core.ipynb  mnist_5_core.ipynb  mobile_ss.ipynb  |
