@@ -69,7 +69,7 @@ Cấu trúc thư mục Project:
     └── utils.h
 
 ```
-run.sh là bash script để chạy biên dịch toàn chương trình, sau đó chạy ./main để vào chương trình. Các file phụ trợ header file và source file nằm trong thư mục utils. Folder tests chứa các chương trình C++ để kiểm tra chức năng từng hàm. Folder test_env là thư mục riêng biệt chứa các file và folder được tạo ra để test chương trình hoạt động như thế nào, không gây ảnh hưởng đến các folder khác.
+**run.sh** là bash script để chạy biên dịch toàn chương trình, sau đó chạy chương trình. **./main** là chương trình đẻ chạy thực thi luôn không cần biên dịch lại. Các file phụ trợ header file và source file nằm trong thư mục **utils**. Folder **tests** chứa các chương trình C++ để kiểm tra chức năng từng hàm. *Folder **test_env** là thư mục riêng biệt chứa các file và folder được tạo ra để test chương trình hoạt động như thế nào, không gây ảnh hưởng đến các folder khác.
 
 Khi đã trong folder Project, thực hiện bash script sau để biên dịch và chạy chương trình cho lần đầu hoặc có chỉnh sửa source:
 ```shell
@@ -81,7 +81,7 @@ Từ lần sau đó, không cần biên dịch lại nữa, chỉ cần chạy c
 ./main
 ```
 
-Sau đó thao tác như thao tác với shell bình thường, chú ý hiện tại chư thể sử dụng các arrow keys trong terminal.
+**Sau đó thao tác như thao tác với shell bình thường, chú ý hiện tại chư thể sử dụng các arrow keys trong terminal.**
 
 <a name="kiemthu"></a>
 
