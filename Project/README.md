@@ -24,10 +24,11 @@ MSSV| Thành viên | Công việc |
 ## Usage
 * Đầu tiên, tải toàn bộ Project:
 ```shell
-git clone 
+git clone https://github.com/highquanglity/OS_course.git
 ```
 Sau đó thực hiện bash script sau để biên dịch và chạy chương trình cho lần đầu hoặc có chỉnh sửa source:
 ```shell
+cd Project
 sh run.sh
 ```
 
