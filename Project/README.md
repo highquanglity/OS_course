@@ -3,6 +3,22 @@
 
 > Github: ** https://github.com/highquanglity/OS_course/tree/main/Project **
 
+### Mục lục
+[I. Mở đầu](#Modau)
+
+[II. Phân công công việc](#Phancong)
+
+[III. Requirements](#yeucau)
+
+[IV. Usage](#sudung)
+
+[V. Cấu trúc thư mục ](#cautruc)
+
+[VI. Tests](#kiemthu)
+
+<a name="Modau"></a>
+
+## Mở đầu
 Repo này là bài tập lớn môn Hệ Điều Hành (ET4291) của nhóm 5, bao gồm các sinh viên:
 - Nghiêm Văn Quang (20203547)
 - Nguyễn Phạm Trung Hiếu (20203706)
@@ -10,6 +26,10 @@ Repo này là bài tập lớn môn Hệ Điều Hành (ET4291) của nhóm 5, b
 - Hà Đình Đạt (20203355)
 
 Trong bài tập lớn này, các chức năng và câu lệnh của một Linux shell cơ bản sẽ được nhóm mô phỏng sử dụng ngôn ngữ lập trình C++.
+
+
+<a name="Phancong"></a>
+
 ## Phân công công việc
 MSSV| Thành viên | Công việc |
 ----|------------|-----------|
@@ -17,10 +37,16 @@ MSSV| Thành viên | Công việc |
 20203355| Hà Đình Đạt | Tìm hiểu về internal command, get_current_dir(), display_promt, handle_pwd(), handle_help(), trim(),wcard_check(), handle_redirect_check(), InItalicCmd_check(), exeCmdOutput()| 
 20203706| Nguyễn Phạm Trung Hiếu | Viết test case, handle_cat(), exeInternalCmd(), SplitCmd_char(),get_delimeter_positions(), exeCmdOutput(), SplitCmd_pos(), README.md, làm báo cáo.| 
 20203547| Nghiêm Văn Quang |Chia module, viết test case, doc cho hàm, ghép chương trình, single_cmd_process(), handle_redirection(), exeBackgndCmd(), exePipeCmd(), exeComplexCmds(), GetItalicCommaCommandOutput(), README.md |
+
+<a name="yeucau"></a>
+
 ## Requirements:
 - C++ 11, C++ 14, C++17.
 - g++/gcc.
 - Ubuntu > 16.04.
+
+<a name="sudung"></a>
+
 ## Usage
 * Đầu tiên, git clone toàn bộ Project từ dùng git: 
 ```shell
@@ -39,6 +65,9 @@ Từ lần sau đó, không cần biên dịch lại nữa, chỉ cần chạy c
 ```
 
 Sau đó thao tác như thao tác với shell bình thường, chú ý hiện tại chư thể sử dụng các arrow keys trong terminal.
+
+<a name="cautruc"></a>
+
 ## Cấu trúc thư mục:
 Dưới đây là cấu trúc thư mục Project
 ```shell
@@ -58,7 +87,10 @@ Dưới đây là cấu trúc thư mục Project
 
 ```
 run.sh là bash script để chạy biên dịch toàn chương trình, sau đó chạy ./main để vào chương trình. Các file phụ trợ header file và source file nằm trong thư mục utils. Folder tests chứa các chương trình C++ để kiểm tra chức năng từng hàm. Folder test_env là thư mục riêng biệt chứa các file và folder được tạo ra để test chương trình hoạt động như thế nào, không gây ảnh hưởng đến các folder khác.
-## Running Tests
+
+<a name="kiemthu"></a>
+
+## Tests
 | Case | Đầu ra trên Ubuntu terminal | Kết quả chương trình|
 |--------------|-------|------|
 | ```cd test_env``` | Chuyển thành công vào test_env| Chuyển thành công vào test_env|
