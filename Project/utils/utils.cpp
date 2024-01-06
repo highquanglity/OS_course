@@ -566,9 +566,14 @@ void redirect_output(const string &output_file, bool append, const string &comma
  */
 void handle_redirection(vector<string> &args)
 {
+    
     string output_file = args[args.size() - 1];
     trim(output_file);
-    string command = args[0];
+    string command="";
+    for (int i = 0; i < args.size() - 2; i++)
+    {
+        command += args[i] + " ";
+    }
     trim(command);
 
     bool append = false;
@@ -633,6 +638,7 @@ void exeSimpleCmd(string &command)
 
     vector<string> args = single_cmd_process(command);
     args = expandWildcardTokens(args);
+
     if (handle_redirect_check(args, ">") || handle_redirect_check(args, ">>"))
     {
         handle_redirection(args);

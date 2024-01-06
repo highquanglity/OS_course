@@ -9,6 +9,7 @@ mnist_1_core.ipynb
 mnist_5_core.ipynb
 mobile_ss.ipynb
 o.txt
+q.txt
 quang
 quang'dat'
 quang'hieu

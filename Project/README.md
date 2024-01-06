@@ -58,3 +58,4 @@ Từ lần sau đó, không cần biên dịch lại nữa, chỉ cần chạy c
 | ```pwd > file.txt ``` | Xóa toàn bộ nội dung file.txt đã có và ghi vào file này output của câu lệnh pwd| Xóa toàn bộ nội dung file.txt đã có và ghi vào file này output của câu lệnh pwd |
 | ```mkdir "hello&&world" && pwd ``` | Tạo thành công thư mục có tên "hello&&world" đồng thơi thực hiện câu lệnh pwd và in ra terminal| Tạo thành công thư mục có tên "hello&&world" đồng thơi thực hiện câu lệnh pwd và in ra terminal |
 | ```ls & pwd & echo hi ``` | Chạy ngầm và in ra pid của ls, pwd. echo hi chạy xong đầu tiên, tiếp theo là pwd và cuối cùng là ls|Chạy ngầm và in ra pid của ls, pwd. echo hi chạy xong đầu tiên, tiếp theo là pwd và cuối cùng là ls|
+| ```cat hehe.txt > o.txt ``` | Ghi thành công nội dung của file hehe.txt vào file o.txt|Ghi thành công nội dung của file hehe.txt vào file o.txt|

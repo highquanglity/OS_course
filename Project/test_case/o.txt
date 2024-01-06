@@ -1,1 +1,1 @@
-[1;36m/home/quang/Desktop/OS_course/Project/test_case[0m$ 
+print
