@@ -32,9 +32,9 @@ Trong bài tập lớn này, các chức năng và câu lệnh của một Linux
 MSSV| Thành viên | Công việc |
 ----|------------|-----------|
 20200038| Nguyễn Tuấn Anh | Tìm hiểu về external command, exeExternalCmd(), handle_cd(), find_special_character(), expand_wcard(), expandWildcardTokens(), find_and_erase(), IsInsideQuotes(), làm báo cáo.| 
-20203355| Hà Đình Đạt | Tìm hiểu về internal command, get_current_dir(), display_promt, handle_pwd(), handle_help(), trim(),wcard_check(), handle_redirect_check(), InItalicCmd_check(), exeCmdOutput()| 
+20203355| Hà Đình Đạt | Tìm hiểu về internal command, get_current_dir(), display_promt, handle_pwd(), handle_help(), trim(),wcard_check(), handle_redirect_check(), InItalicCmd_check(), exeCmdOutput().| 
 20203706| Nguyễn Phạm Trung Hiếu | Viết test case, handle_cat(), exeInternalCmd(), SplitCmd_char(),get_delimeter_positions(), exeCmdOutput(), SplitCmd_pos(), README.md, làm báo cáo.| 
-20203547| Nghiêm Văn Quang |Chia module, viết test case, doc cho hàm, ghép chương trình, single_cmd_process(), handle_redirection(), exeBackgndCmd(), exePipeCmd(), exeComplexCmds(), GetItalicCommaCommandOutput(), README.md |
+20203547| Nghiêm Văn Quang |Chia module, viết test case, doc cho hàm, ghép chương trình, single_cmd_process(), handle_redirection(), exeBackgndCmd(), exePipeCmd(), exeComplexCmds(), GetItalicCommaCommandOutput(), README.md.|
 
 <a name="yeucau"></a>
 
