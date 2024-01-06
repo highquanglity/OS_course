@@ -1,7 +1,7 @@
 # OS COURSE: Shell Simulator using C/C++
 > by: **Nghiem Van Quang, Nguyen Tuan Anh, Nguyen Pham Trung Hieu, Ha Dinh Dat**
 
-> Github: 
+> Github: ** https://github.com/highquanglity/OS_course/tree/main/Project **
 
 Repo này là bài tập lớn môn Hệ Điều Hành (ET4291) của nhóm 5, bao gồm các sinh viên:
 - Nghiêm Văn Quang (20203547)
