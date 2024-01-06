@@ -22,13 +22,14 @@ MSSV| Thành viên | Công việc |
 - g++/gcc.
 - Ubuntu > 16.04.
 ## Usage
-* Đầu tiên, tải toàn bộ Project:
+* Đầu tiên, git clone toàn bộ Project từ dùng git: 
 ```shell
 git clone https://github.com/highquanglity/OS_course.git
-```
-Sau đó thực hiện bash script sau để biên dịch và chạy chương trình cho lần đầu hoặc có chỉnh sửa source:
-```shell
 cd Project
+```
+
+Khi đã trong folder Project, thực hiện bash script sau để biên dịch và chạy chương trình cho lần đầu hoặc có chỉnh sửa source:
+```shell
 sh run.sh
 ```
 
