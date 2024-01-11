@@ -154,9 +154,8 @@ vector<string> single_cmd_process(const string &command)
         if (Quote_pos.size() % 2 != 0)
         {
             cout << "Odd number of apostrophes" << endl;
-            return tokens;
         }
-        if (Space_pos[0] < Quote_pos[0] || Space_pos.size() - 1 > Quote_pos[Quote_pos.size() - 1])
+        if (Space_pos[0] < Quote_pos[0] || Space_pos[Space_pos.size() - 1] > Quote_pos[Quote_pos.size() - 1])
         {
             string token1 = command.substr(0, Space_pos.at(0));
             trim(token1);
@@ -181,7 +180,7 @@ vector<string> single_cmd_process(const string &command)
             cout << "Odd number of apostrophes" << endl;
             return tokens;
         }
-        if (Space_pos[0] < Dquote_pos[0] || Space_pos.size() - 1 > Dquote_pos[Dquote_pos.size() - 1])
+        if (Space_pos[0] < Dquote_pos[0] || Space_pos[Space_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1])
         {
             string token1 = command.substr(0, Space_pos.at(0));
             trim(token1);
@@ -203,9 +202,9 @@ vector<string> single_cmd_process(const string &command)
     {
         if (Quote_pos.size() % 2 == 0 && Dquote_pos.size() % 2 == 0)
         {
-            if (Quote_pos[0] > Dquote_pos[0] && Quote_pos[Quote_pos[Quote_pos.size() - 1] < Dquote_pos[Dquote_pos.size() - 1]])
+            if (Quote_pos[0] > Dquote_pos[0] && Quote_pos[Quote_pos.size() - 1] < Dquote_pos[Dquote_pos.size() - 1])
             {
-                if (Space_pos[0] < Dquote_pos[0] || Space_pos.size() - 1 > Dquote_pos[Dquote_pos.size() - 1])
+                if (Space_pos[0] < Dquote_pos[0] || Space_pos[Space_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1])
                 {
                     string token1 = command.substr(0, Space_pos.at(0));
                     trim(token1);
@@ -223,9 +222,9 @@ vector<string> single_cmd_process(const string &command)
                 }
             }
 
-            else if (Quote_pos[0] < Dquote_pos[0] && Quote_pos[Quote_pos[Quote_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1]])
+            else if (Quote_pos[0] < Dquote_pos[0] && Quote_pos[Quote_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1])
             {
-                if (Space_pos[0] < Quote_pos[0] || Space_pos.size() - 1 > Quote_pos[Quote_pos.size() - 1])
+                if (Space_pos[0] < Quote_pos[0] || Space_pos[Space_pos.size() - 1] > Quote_pos[Quote_pos.size() - 1])
                 {
                     string token1 = command.substr(0, Space_pos.at(0));
                     trim(token1);
@@ -251,7 +250,7 @@ vector<string> single_cmd_process(const string &command)
         {
             if (Quote_pos[0] < Dquote_pos[0] && Quote_pos[Quote_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1])
             {
-                if (Space_pos[0] < Quote_pos[0] || Space_pos.size() - 1 > Quote_pos[Quote_pos.size() - 1])
+                if (Space_pos[0] < Quote_pos[0] || Space_pos[Space_pos.size() - 1] > Quote_pos[Quote_pos.size() - 1])
                 {
                     string token1 = command.substr(0, Space_pos.at(0));
                     trim(token1);
@@ -277,7 +276,7 @@ vector<string> single_cmd_process(const string &command)
         {
             if (Quote_pos[0] > Dquote_pos[0] && Quote_pos[Quote_pos.size() - 1] < Dquote_pos[Dquote_pos.size() - 1])
             {
-                if (Space_pos[0] < Dquote_pos[0] || Space_pos.size() - 1 > Dquote_pos[Dquote_pos.size() - 1])
+                if (Space_pos[0] < Dquote_pos[0] ||Space_pos[Space_pos.size() - 1] > Dquote_pos[Dquote_pos.size() - 1])
                 {
                     string token1 = command.substr(0, Space_pos.at(0));
                     trim(token1);
@@ -437,9 +436,9 @@ vector<string> exeCmdOutput(const vector<string> &args)
  */
 bool InItalicCmd_check(const vector<string> &args)
 {
-    for (const auto &line : args)
+    for (const auto &arg : args)
     {
-        if (!line.empty() && line[0] == '`')
+        if (!arg.empty() && arg[0] == '`')
         {
             return true;
         }
